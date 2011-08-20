@@ -38,15 +38,15 @@ Usage
 The class API is pretty straight forward, and has delegate callbacks for completion and failure.
 Typical usage, api class should be stored in an iVar, and it's delegate nilled in dealloc:
 
-`self.api = [[[AJSiTunesAPI alloc] init] autorelease];`
-`self.api.delegate = self;`
-
-Simple search, for all types and limited to 50 / US country code
-`[self.api searchMediaWithSearchTerm:@"Jack Johnson"];`
-
-More refined search, passing media types, limit and country
-`[self.api searchMediaWithType:kAJSiTunesAPIMediaTypeMusic searchTerm:@"Jack Johnson" countryCode:@"US" limit:10];`
-
+	self.api = [[[AJSiTunesAPI alloc] init] autorelease];
+	self.api.delegate = self;
+	
+	//Simple search, for all types and limited to 50 / US country code
+	[self.api searchMediaWithSearchTerm:@"Jack Johnson"];
+	
+	//More refined search, passing media types, limit and country
+	[self.api searchMediaWithType:kAJSiTunesAPIMediaTypeMusic searchTerm:@"Jack Johnson" countryCode:@"US" limit:10];
+	
 Example
 =======
 
