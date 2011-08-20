@@ -28,7 +28,7 @@ Installation
 
 Installation is fairly straight forward, clone the project out, using the recursive flag to grab all submodules:
 
-`git clone --recursive git@github.com:andysmart/AJS-iTunes-API.git`
+`git clone --recursive git://github.com/andysmart/AJS-iTunes-API.git`
 
 The just copy the `External` and `Classes` directories into your project, and include the `#import "AJSiTunesAPI.h"` header in your classes.
 
