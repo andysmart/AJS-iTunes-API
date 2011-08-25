@@ -35,12 +35,37 @@
     //Load with a default search
     
     self.iTunesAPIController = [[[AJSiTunesAPI alloc] init] autorelease];
-    self.iTunesAPIController.delegate = self;
     
     [self.iTunesAPIController searchMediaWithType:kAJSiTunesAPIMediaTypeMusic
                                        searchTerm:@"Jack Johnson"
                                       countryCode:@"GB"
-                                            limit:50]; //the sample search iTunes API docs show
+                                            limit:50
+                                  completionBlock:^(NSArray *results) {
+                                    
+                                      self.searchResults = [NSArray arrayWithArray:results];
+                                      
+                                      [self.tableView beginUpdates];
+                                      [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0]
+                                                    withRowAnimation:UITableViewRowAnimationFade];
+                                      [self.tableView endUpdates];
+                                      
+                                      [self.loadingSpinner stopAnimating];
+                                      self.navigationItem.title = @"Search Results";
+                                      
+                                  } failureBlock:^(NSError *error) {
+                                      
+                                      UIAlertView *alert = [[UIAlertView alloc]
+                                                            initWithTitle:@"An Error occurred"
+                                                            message:[NSString stringWithFormat:@"Error: %@", error]
+                                                            delegate:nil
+                                                            cancelButtonTitle:@"Oooops"
+                                                            otherButtonTitles:nil];
+                                      [alert show];
+                                      [alert release];
+                                      
+                                      [self.loadingSpinner stopAnimating];
+                                      self.navigationItem.title = @"Error";
+                                  }];
     
     //Show a loading indicator top right
     
@@ -61,38 +86,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-#pragma mark - iTunesAPIDelegate
-
-- (void) iTunesApi:(AJSiTunesAPI *)api 
-didCompleteWithResults:(NSArray *)results {
-    
-    self.searchResults = [NSArray arrayWithArray:results];
-    
-    [self.tableView beginUpdates];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0]
-                  withRowAnimation:UITableViewRowAnimationFade];
-    [self.tableView endUpdates];
-    
-    [self.loadingSpinner stopAnimating];
-    self.navigationItem.title = @"Search Results";
-}
-
-- (void) iTunesAPI:(AJSiTunesAPI *)api 
-  didFailWithError:(NSError *)error {
-    
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:@"An Error occurred"
-                          message:[NSString stringWithFormat:@"Error: %@", error]
-                          delegate:nil
-                          cancelButtonTitle:@"Oooops"
-                          otherButtonTitles:nil];
-    [alert show];
-    [alert release];
-    
-    [self.loadingSpinner stopAnimating];
-    self.navigationItem.title = @"Error";
 }
 
 #pragma mark - Table view data source

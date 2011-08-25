@@ -40,7 +40,9 @@ NSString *const kiTunesAPILimitParam = @"limit";
 @interface AJSiTunesAPI()
 @property (nonatomic, retain) ASIHTTPRequest *request;
 
-- (void) makeRequestToURL:(NSURL *)url;
+- (void) makeRequestToURL:(NSURL *)url 
+      withCompletionBlock:(AJSiTunesAPICompletionBlock)completionBlock 
+             failureBlock:(AJSiTunesAPIFailureBlock)failureBlock;
 
 @end
 
@@ -55,6 +57,8 @@ NSString *const kiTunesAPILimitParam = @"limit";
     [super dealloc];
 }
 
+#pragma mark - Helpers
+
 - (void) searchMediaWithSearchTerm:(NSString *)searchTerm 
 {
     [self searchMediaWithType:kAJSiTunesAPIMediaTypeAll 
@@ -68,7 +72,35 @@ NSString *const kiTunesAPILimitParam = @"limit";
                  countryCode:(NSString *)countryCode
                        limit:(NSInteger)limit
 {
-    
+    [self searchMediaWithType:type
+                   searchTerm:keywords
+                  countryCode:countryCode
+                        limit:limit
+              completionBlock:nil
+                 failureBlock:nil];
+}
+
+- (void) searchMediaWithSearchTerm:(NSString *)searchTerm 
+                   completionBlock:(AJSiTunesAPICompletionBlock)completionBlock 
+                      failureBlock:(AJSiTunesAPIFailureBlock)failureBlock 
+{
+    [self searchMediaWithType:kAJSiTunesAPIMediaTypeAll
+                   searchTerm:searchTerm
+                  countryCode:@"US"
+                        limit:50
+              completionBlock:completionBlock
+                 failureBlock:failureBlock];
+}
+
+#pragma mark - Main Request
+
+- (void) searchMediaWithType:(kAJSiTunesAPIMediaType)type 
+                  searchTerm:(NSString *)keywords 
+                 countryCode:(NSString *)countryCode 
+                       limit:(NSInteger)limit 
+             completionBlock:(AJSiTunesAPICompletionBlock)completionBlock 
+                failureBlock:(AJSiTunesAPIFailureBlock)failureBlock 
+{
     keywords = [keywords ajs_cleanedStringForQuery];
     
     NSMutableString *queryString = [NSMutableString string];
@@ -136,12 +168,17 @@ NSString *const kiTunesAPILimitParam = @"limit";
                            kiTunesAPIEndpoint, queryString];
     
     NSURL *url = [NSURL URLWithString:urlString];
-    [self makeRequestToURL:url];
+    
+    [self makeRequestToURL:url 
+       withCompletionBlock:completionBlock 
+              failureBlock:failureBlock];
 }
 
 #pragma mark - Private
 
 - (void) makeRequestToURL:(NSURL *)url 
+      withCompletionBlock:(AJSiTunesAPICompletionBlock)completionBlock 
+             failureBlock:(AJSiTunesAPIFailureBlock)failureBlock 
 {    
     if ([self.request isExecuting]) {
         [self.request cancel];
@@ -179,7 +216,14 @@ NSString *const kiTunesAPILimitParam = @"limit";
             }
         }
         
-        if (self.delegate && [self.delegate respondsToSelector:@selector(iTunesApi:didCompleteWithResults:)]) {
+        //Notify either via Block, or by Delegate
+        //if either is set
+        
+        if (completionBlock) {
+            
+            completionBlock(formattedResults);
+            
+        } else if (self.delegate && [self.delegate respondsToSelector:@selector(iTunesApi:didCompleteWithResults:)]) {
             [self.delegate iTunesApi:self didCompleteWithResults:formattedResults];
         }
         
@@ -191,7 +235,11 @@ NSString *const kiTunesAPILimitParam = @"limit";
         
         if (error) {
             
-            if (self.delegate && [self.delegate respondsToSelector:@selector(iTunesAPI:didFailWithError:)]) {
+            if (failureBlock) {
+                
+                failureBlock(error);
+                
+            } else if (self.delegate && [self.delegate respondsToSelector:@selector(iTunesAPI:didFailWithError:)]) {
                 [self.delegate iTunesAPI:self didFailWithError:error];
             }
         } else {

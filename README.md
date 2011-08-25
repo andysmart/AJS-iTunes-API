@@ -1,7 +1,7 @@
 AJS iTunesAPI
 =============
 
-Cocoa / Objective-C wrapper for the iTunes Search API. AJSiTunesAPI is a simple, asynchronous API controller and object for searching the iTunes Search API on either Mac OSX or iOS projects.
+AJSiTunesAPI is a simple, asynchronous Cocoa API controller and object for searching the iTunes Search API on either Mac OSX or iOS projects.
 
 This library is a work-in-progress, but current features should work as expected. Support for iTunes lookups from artist ID is omitted, and planned.
 
@@ -35,8 +35,11 @@ The just copy the `External` and `Classes` directories into your project, and in
 Usage
 =====
 
-The class API is pretty straight forward, and has delegate callbacks for completion and failure.
-Typical usage, api class should be stored in an iVar, and it's delegate nilled in dealloc:
+AJSiTunesAPI can be used in two ways, either using the delegate callbacks, or the block based API.
+
+### Delegate
+
+There are two delegate callbacks for AJSiTunesAPI, for completion and failure. Completion returns an NSArray of AJSiTunesResult objects, and failure returns a NSError containing failure details.
 
 	self.api = [[[AJSiTunesAPI alloc] init] autorelease];
 	self.api.delegate = self;
@@ -47,7 +50,22 @@ Typical usage, api class should be stored in an iVar, and it's delegate nilled i
 	//More refined search, passing media types, limit and country
 	[self.api searchMediaWithType:kAJSiTunesAPIMediaTypeMusic searchTerm:@"Jack Johnson" countryCode:@"US" limit:10];
 	
+### Block Based
+
+You can optionally pass two blocks for handling responses inline, if both a block and a delegate is set only the block callback will fire. The block structures are defined in `AJSiTunesAPI.h`.
+
+	self.api = [[[AJSiTunesAPI alloc] init] autorelease];
+	
+	[self.api searchMediaWithSearchTerm:@"Jack Johnson" completionBlock:^(NSArray *results) { //Completion handler } failureBlock:^(NSError *error) { //Error handler here }];
+	
 Example
 =======
 
-Included in the source is an example tableView controller, using AJSiTunesAPI to fetch results and display them.
+Included in the source is an example tableView controller, using AJSiTunesAPI to fetch results and display them (example uses block callbacks).
+
+Credits
+=======
+
+[ASIHTTPRequest](https://github.com/pokeb/asi-http-request)
+[SBJSON](https://github.com/stig/json-framework)
+[ISO8601 Parser](http://boredzo.org/iso8601parser/)

@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AJSiTunesAPI.h"
 
-@interface ExampleTableViewController : UITableViewController 
-<AJSiTunesAPIDelegate> {
+@interface ExampleTableViewController : UITableViewController {
     
     @private
     NSArray *_searchResults;

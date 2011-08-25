@@ -30,11 +30,17 @@
 #import "AJSiTunesAPIDelegate.h"
 #import "AJSiTunesResult.h"
 
+typedef void (^AJSiTunesAPICompletionBlock)(NSArray *results);
+typedef void (^AJSiTunesAPIFailureBlock)(NSError *error);
+
 @interface AJSiTunesAPI : NSObject
 {
     @private
     ASIHTTPRequest *_request;
     id <AJSiTunesAPIDelegate> _delegate;
+    
+    AJSiTunesAPICompletionBlock _completionBlock;
+    AJSiTunesAPIFailureBlock _failureBlock;
 }
 
 - (void) searchMediaWithSearchTerm:(NSString *)searchTerm;
@@ -42,6 +48,17 @@
                   searchTerm:(NSString *)keywords
                  countryCode:(NSString *)countryCode
                        limit:(NSInteger)limit; //Restricted to 200 max
+
+- (void) searchMediaWithSearchTerm:(NSString *)searchTerm 
+                   completionBlock:(AJSiTunesAPICompletionBlock)completionBlock 
+                      failureBlock:(AJSiTunesAPIFailureBlock)failureBlock;
+
+- (void) searchMediaWithType:(kAJSiTunesAPIMediaType)type 
+                  searchTerm:(NSString *)keywords
+                 countryCode:(NSString *)countryCode
+                       limit:(NSInteger)limit
+             completionBlock:(AJSiTunesAPICompletionBlock)completionBlock
+                failureBlock:(AJSiTunesAPIFailureBlock)failureBlock;
 
 @property (nonatomic, assign) id <AJSiTunesAPIDelegate> delegate;
 
