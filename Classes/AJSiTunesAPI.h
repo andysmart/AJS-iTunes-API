@@ -38,9 +38,6 @@ typedef void (^AJSiTunesAPIFailureBlock)(NSError *error);
     @private
     ASIHTTPRequest *_request;
     id <AJSiTunesAPIDelegate> _delegate;
-    
-    AJSiTunesAPICompletionBlock _completionBlock;
-    AJSiTunesAPIFailureBlock _failureBlock;
 }
 
 - (void) searchMediaWithSearchTerm:(NSString *)searchTerm;
