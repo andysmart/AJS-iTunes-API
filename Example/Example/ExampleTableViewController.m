@@ -36,21 +36,23 @@
     
     self.iTunesAPIController = [[[AJSiTunesAPI alloc] init] autorelease];
     
+    __block typeof(self) blockSelf = self;
+    
     [self.iTunesAPIController searchMediaWithType:kAJSiTunesAPIMediaTypeMusic
                                        searchTerm:@"Jack Johnson"
                                       countryCode:@"GB"
                                             limit:50
                                   completionBlock:^(NSArray *results) {
                                     
-                                      self.searchResults = [NSArray arrayWithArray:results];
+                                      blockSelf.searchResults = [NSArray arrayWithArray:results];
                                       
-                                      [self.tableView beginUpdates];
-                                      [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0]
+                                      [blockSelf.tableView beginUpdates];
+                                      [blockSelf.tableView reloadSections:[NSIndexSet indexSetWithIndex:0]
                                                     withRowAnimation:UITableViewRowAnimationFade];
-                                      [self.tableView endUpdates];
+                                      [blockSelf.tableView endUpdates];
                                       
-                                      [self.loadingSpinner stopAnimating];
-                                      self.navigationItem.title = @"Search Results";
+                                      [blockSelf.loadingSpinner stopAnimating];
+                                      blockSelf.navigationItem.title = @"Search Results";
                                       
                                   } failureBlock:^(NSError *error) {
                                       
@@ -63,8 +65,8 @@
                                       [alert show];
                                       [alert release];
                                       
-                                      [self.loadingSpinner stopAnimating];
-                                      self.navigationItem.title = @"Error";
+                                      [blockSelf.loadingSpinner stopAnimating];
+                                      blockSelf.navigationItem.title = @"Error";
                                   }];
     
     //Show a loading indicator top right

@@ -185,6 +185,7 @@ NSString *const kiTunesAPILimitParam = @"limit";
     }
     
     __block ASIHTTPRequest *r = [ASIHTTPRequest requestWithURL:url];
+    __block typeof(self) blockSelf = self;
     
     [r setCompletionBlock:^{
         
@@ -223,8 +224,8 @@ NSString *const kiTunesAPILimitParam = @"limit";
             
             completionBlock(formattedResults);
             
-        } else if (self.delegate && [self.delegate respondsToSelector:@selector(iTunesApi:didCompleteWithResults:)]) {
-            [self.delegate iTunesApi:self didCompleteWithResults:formattedResults];
+        } else if (blockSelf.delegate && [blockSelf.delegate respondsToSelector:@selector(iTunesApi:didCompleteWithResults:)]) {
+            [blockSelf.delegate iTunesApi:blockSelf didCompleteWithResults:formattedResults];
         }
         
     }];
@@ -239,8 +240,8 @@ NSString *const kiTunesAPILimitParam = @"limit";
                 
                 failureBlock(error);
                 
-            } else if (self.delegate && [self.delegate respondsToSelector:@selector(iTunesAPI:didFailWithError:)]) {
-                [self.delegate iTunesAPI:self didFailWithError:error];
+            } else if (blockSelf.delegate && [blockSelf.delegate respondsToSelector:@selector(iTunesAPI:didFailWithError:)]) {
+                [blockSelf.delegate iTunesAPI:blockSelf didFailWithError:error];
             }
         } else {
             //What the hell happened here?!
