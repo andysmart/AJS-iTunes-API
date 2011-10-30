@@ -46,13 +46,13 @@
 		A1C433501400113A00679749 /* ExampleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C4334E1400113A00679749 /* ExampleTableViewController.m */; };
 		A1C433511400113A00679749 /* ExampleTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C4334F1400113A00679749 /* ExampleTableViewController.xib */; };
 		A1C43356140014DD00679749 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C43352140014DD00679749 /* CFNetwork.framework */; };
-		A1C43357140014DD00679749 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C43353140014DD00679749 /* libz.1.2.3.dylib */; };
 		A1C43358140014DD00679749 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C43354140014DD00679749 /* MobileCoreServices.framework */; };
 		A1C43359140014DD00679749 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C43355140014DD00679749 /* SystemConfiguration.framework */; };
 		A1C4335D140014F700679749 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C4335C140014F700679749 /* Reachability.m */; };
 		A1C433601400151500679749 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C4335F1400151500679749 /* ASIAuthenticationDialog.m */; };
 		A1C4336414001F0000679749 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C4336214001F0000679749 /* ISO8601DateFormatter.m */; };
 		A1C4336514001F0000679749 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = A1C4336314001F0000679749 /* LICENSE.txt */; };
+		A1FD1BED145E059800AC52AF /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FD1BEC145E059800AC52AF /* libz.1.2.5.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,7 +137,6 @@
 		A1C4334E1400113A00679749 /* ExampleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleTableViewController.m; sourceTree = "<group>"; };
 		A1C4334F1400113A00679749 /* ExampleTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExampleTableViewController.xib; sourceTree = "<group>"; };
 		A1C43352140014DD00679749 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		A1C43353140014DD00679749 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		A1C43354140014DD00679749 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A1C43355140014DD00679749 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A1C4335B140014F700679749 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -147,6 +146,7 @@
 		A1C4336114001F0000679749 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISO8601DateFormatter.h; path = "ISO8601 Parser/ISO8601DateFormatter.h"; sourceTree = "<group>"; };
 		A1C4336214001F0000679749 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISO8601DateFormatter.m; path = "ISO8601 Parser/ISO8601DateFormatter.m"; sourceTree = "<group>"; };
 		A1C4336314001F0000679749 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = "ISO8601 Parser/LICENSE.txt"; sourceTree = "<group>"; };
+		A1FD1BEC145E059800AC52AF /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,8 +154,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1FD1BED145E059800AC52AF /* libz.1.2.5.dylib in Frameworks */,
 				A1C43356140014DD00679749 /* CFNetwork.framework in Frameworks */,
-				A1C43357140014DD00679749 /* libz.1.2.3.dylib in Frameworks */,
 				A1C43358140014DD00679749 /* MobileCoreServices.framework in Frameworks */,
 				A1C43359140014DD00679749 /* SystemConfiguration.framework in Frameworks */,
 				A1C42EA513FFD90100679749 /* UIKit.framework in Frameworks */,
@@ -200,8 +200,8 @@
 		A1C42EA313FFD90000679749 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1FD1BEC145E059800AC52AF /* libz.1.2.5.dylib */,
 				A1C43352140014DD00679749 /* CFNetwork.framework */,
-				A1C43353140014DD00679749 /* libz.1.2.3.dylib */,
 				A1C43354140014DD00679749 /* MobileCoreServices.framework */,
 				A1C43355140014DD00679749 /* SystemConfiguration.framework */,
 				A1C42EA413FFD90100679749 /* UIKit.framework */,
@@ -425,6 +425,7 @@
 		A1C42E9713FFD90000679749 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Andy Smart";
 			};
 			buildConfigurationList = A1C42E9A13FFD90000679749 /* Build configuration list for PBXProject "Example" */;
@@ -615,6 +616,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Example/Example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -626,6 +628,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Example/Example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -642,6 +645,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "ExampleTests/ExampleTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -659,6 +663,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "ExampleTests/ExampleTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -685,6 +690,7 @@
 				A1C42ED413FFD90100679749 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1C42ED513FFD90100679749 /* Build configuration list for PBXNativeTarget "ExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -693,6 +699,7 @@
 				A1C42ED713FFD90100679749 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
