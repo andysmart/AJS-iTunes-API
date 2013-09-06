@@ -6,8 +6,3 @@
 //  Copyright (c) 2013 Rocket Town Ltd. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-@interface AJSITunesAPI : NSObject
-
-@end

@@ -1,0 +1,17 @@
+PODS:
+  - AFNetworking (2.0.0-RC2):
+    - AFNetworking/Core
+    - AFNetworking/UIKit+AFNetworking
+  - AFNetworking/Core (2.0.0-RC2)
+  - AFNetworking/UIKit+AFNetworking (2.0.0-RC2)
+  - ISO8601DateFormatter (0.6)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.0.0-RC2)
+  - ISO8601DateFormatter (~> 0.6)
+
+SPEC CHECKSUMS:
+  AFNetworking: 6b19d8a0793f342d8c879cd0af9d7488e54addcf
+  ISO8601DateFormatter: 077ce9d8cfba171bc1ced6cba0d2ae4aefab7619
+
+COCOAPODS: 0.23.0

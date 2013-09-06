@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0948AA6250254B3DA1B2D61C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F396560AD1834C89A992D171 /* libPods.a */; };
 		A194BE2E17DA202C00F19CEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A194BE2D17DA202C00F19CEF /* Foundation.framework */; };
 		A194BE3317DA202C00F19CEF /* AJSITunesAPI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A194BE3217DA202C00F19CEF /* AJSITunesAPI.h */; };
-		A194BE3517DA202C00F19CEF /* AJSITunesAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A194BE3417DA202C00F19CEF /* AJSITunesAPI.m */; };
 		A194BE3C17DA202C00F19CEF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A194BE3B17DA202C00F19CEF /* XCTest.framework */; };
 		A194BE3D17DA202C00F19CEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A194BE2D17DA202C00F19CEF /* Foundation.framework */; };
 		A194BE3F17DA202C00F19CEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A194BE3E17DA202C00F19CEF /* UIKit.framework */; };
@@ -42,17 +42,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		05B21F86938C4806990CD064 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		A194BE2A17DA202C00F19CEF /* libAJSITunesAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAJSITunesAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A194BE2D17DA202C00F19CEF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A194BE3117DA202C00F19CEF /* AJSITunesAPI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AJSITunesAPI-Prefix.pch"; sourceTree = "<group>"; };
 		A194BE3217DA202C00F19CEF /* AJSITunesAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AJSITunesAPI.h; sourceTree = "<group>"; };
-		A194BE3417DA202C00F19CEF /* AJSITunesAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AJSITunesAPI.m; sourceTree = "<group>"; };
 		A194BE3A17DA202C00F19CEF /* AJSITunesAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AJSITunesAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A194BE3B17DA202C00F19CEF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A194BE3E17DA202C00F19CEF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		A194BE4517DA202C00F19CEF /* AJSITunesAPITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AJSITunesAPITests-Info.plist"; sourceTree = "<group>"; };
 		A194BE4717DA202C00F19CEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A194BE4917DA202C00F19CEF /* AJSITunesAPITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AJSITunesAPITests.m; sourceTree = "<group>"; };
+		F396560AD1834C89A992D171 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A194BE2E17DA202C00F19CEF /* Foundation.framework in Frameworks */,
+				0948AA6250254B3DA1B2D61C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +83,11 @@
 		A194BE2117DA202C00F19CEF = {
 			isa = PBXGroup;
 			children = (
-				A194BE2F17DA202C00F19CEF /* AJSITunesAPI */,
-				A194BE4317DA202C00F19CEF /* AJSITunesAPITests */,
+				A194BE2F17DA202C00F19CEF /* Classes */,
+				A194BE4317DA202C00F19CEF /* Tests */,
 				A194BE2C17DA202C00F19CEF /* Frameworks */,
 				A194BE2B17DA202C00F19CEF /* Products */,
+				05B21F86938C4806990CD064 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,17 +106,18 @@
 				A194BE2D17DA202C00F19CEF /* Foundation.framework */,
 				A194BE3B17DA202C00F19CEF /* XCTest.framework */,
 				A194BE3E17DA202C00F19CEF /* UIKit.framework */,
+				F396560AD1834C89A992D171 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A194BE2F17DA202C00F19CEF /* AJSITunesAPI */ = {
+		A194BE2F17DA202C00F19CEF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				A194BE3217DA202C00F19CEF /* AJSITunesAPI.h */,
-				A194BE3417DA202C00F19CEF /* AJSITunesAPI.m */,
 				A194BE3017DA202C00F19CEF /* Supporting Files */,
 			);
+			name = Classes;
 			path = AJSITunesAPI;
 			sourceTree = "<group>";
 		};
@@ -125,12 +129,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A194BE4317DA202C00F19CEF /* AJSITunesAPITests */ = {
+		A194BE4317DA202C00F19CEF /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				A194BE4917DA202C00F19CEF /* AJSITunesAPITests.m */,
 				A194BE4417DA202C00F19CEF /* Supporting Files */,
 			);
+			name = Tests;
 			path = AJSITunesAPITests;
 			sourceTree = "<group>";
 		};
@@ -150,9 +155,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A194BE4D17DA202C00F19CEF /* Build configuration list for PBXNativeTarget "AJSITunesAPI" */;
 			buildPhases = (
+				0DBBED20365E4924A71DE04F /* Check Pods Manifest.lock */,
 				A194BE2617DA202C00F19CEF /* Sources */,
 				A194BE2717DA202C00F19CEF /* Frameworks */,
 				A194BE2817DA202C00F19CEF /* CopyFiles */,
+				34347E25FDC442FD90521996 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,12 +226,44 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0DBBED20365E4924A71DE04F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		34347E25FDC442FD90521996 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A194BE2617DA202C00F19CEF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A194BE3517DA202C00F19CEF /* AJSITunesAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +365,7 @@
 		};
 		A194BE4E17DA202C00F19CEF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05B21F86938C4806990CD064 /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/AJSITunesAPI.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -338,6 +378,7 @@
 		};
 		A194BE4F17DA202C00F19CEF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05B21F86938C4806990CD064 /* Pods.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/AJSITunesAPI.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -403,6 +444,7 @@
 				A194BE4F17DA202C00F19CEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A194BE5017DA202C00F19CEF /* Build configuration list for PBXNativeTarget "AJSITunesAPITests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +453,7 @@
 				A194BE5217DA202C00F19CEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
