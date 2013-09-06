@@ -36,7 +36,11 @@ Or, if you need a bit more control:
 
 ```objective-c
 AJSITunesClient *client = [AJSITunesClient sharedClient];
-[client searchMediaWithType:AJSITunesMediaTypeMovie keywords:@"batman" country:@"US" limit:10 completion:(NSArray *results, NSError *error) {
+[client searchMediaWithType:AJSITunesMediaTypeMovie
+  keywords:@"batman"
+   country:@"US"
+	 limit:10
+completion:(NSArray *results, NSError *error) {
 	NSLog(@"Finished with results: %@", results);
 }];
 ```
