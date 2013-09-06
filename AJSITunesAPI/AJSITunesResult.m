@@ -7,9 +7,72 @@
 //
 
 #import "AJSITunesResult.h"
+#import <ISO8601DateFormatter/ISO8601DateFormatter.h>
+
+@interface AJSITunesResult()
+@property (nonatomic, strong) NSString *imageURLString;
+@end
 
 @implementation AJSITunesResult
 
++ (ISO8601DateFormatter *)dateFormatter
+{
+    ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
+    return formatter;
+}
 
+#pragma mark - Images
+
+- (NSURL *)imageURL
+{
+    NSString *stripped = [self.imageURLString stringByReplacingOccurrencesOfString:@"100x100-75." withString:@""];
+    return [NSURL URLWithString:stripped];
+}
+
+- (NSURL *)thumnailImageURL
+{
+    return [NSURL URLWithString:self.imageURLString];
+}
+
+#pragma mark - JSON Serialization
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{ @"itemID" : @"trackId",
+              @"artistID" : @"artistId",
+              @"trackCount" : @"trackCount",
+              @"trackNumber" : @"trackNumber",
+              @"title" : @"trackName",
+              @"artistName" : @"artistName",
+              @"genreName" : @"primaryGenreName",
+              @"collectionName" : @"collectionName",
+              @"mediaType" : @"kind",
+              @"itemDescription" : @"longDescription",
+              @"previewURL" : @"previewUrl",
+              @"viewURL" : @"trackViewUrl",
+              @"duration" : @"trackTimeMillis",
+              @"releaseDate" : @"releaseDate",
+              @"imageURLString" : @"artworkUrl100" };
+}
+
+
++ (NSValueTransformer *)previewURLValueTransformer
+{
+    return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
+}
+
++ (NSValueTransformer *)viewURLValueTransformer
+{
+    return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
+}
+
++ (NSValueTransformer *)releaseDateValueTransformer
+{
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *str) {
+        return [[self dateFormatter] dateFromString:str];
+    } reverseBlock:^(NSDate *date) {
+        return [[self dateFormatter] stringFromDate:date];
+    }];;
+}
 
 @end

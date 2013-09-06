@@ -55,6 +55,22 @@
     
     [self GET:@"search" parameters:params success:^(NSHTTPURLResponse *response, id responseObject) {
         
+        NSArray *results = responseObject[@"results"];
+        NSMutableArray *objects = [NSMutableArray arrayWithCapacity:[results count]];
+        
+        for (NSDictionary *hash in results) {
+            NSError *error = nil;
+            AJSITunesResult *object = [MTLJSONAdapter modelOfClass:[AJSITunesResult class] fromJSONDictionary:hash error:&error];
+            
+            if (object && !error) {
+                [objects addObject:object];
+            } else {
+                NSLog(@"Error processing object with hash: %@", hash);
+            }
+        }
+        
+        if (completion) completion(objects, nil);
+        
     } failure:^(NSError *error) {
         if (completion) completion(nil, error);
     }];

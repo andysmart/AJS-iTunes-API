@@ -19,41 +19,41 @@ NSString *const AJSITunesMediaTypePodcast = @"podcast";
 NSString *const AJSITunesMediaTypeShortFilm = @"shortFilm";
 NSString *const AJSITunesMediaTypeSoftware = @"software";
 
-@interface AJSITunesResult : MTLModel
+@interface AJSITunesResult : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic, assign) NSInteger itemID;
-@property (nonatomic, assign) NSInteger artistID;
+@property (nonatomic, strong, readonly) NSNumber *itemID;
+@property (nonatomic, strong, readonly) NSNumber *artistID;
 
-@property (nonatomic, assign) NSInteger trackCount;
-@property (nonatomic, assign) NSInteger trackNumber;
+@property (nonatomic, strong, readonly) NSNumber *trackCount;
+@property (nonatomic, strong, readonly) NSNumber *trackNumber;
 
-@property (nonatomic, strong) NSString *mediaType;
+@property (nonatomic, strong, readonly) NSString *mediaType;
 
 //Title: Either track title, episode name, or item title (software)
 
-@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong, readonly) NSString *title;
 
 //Artist name: For film this is often lead actor / director
 
-@property (nonatomic, strong) NSString *artistName;
-@property (nonatomic, strong) NSDate *releaseDate;
+@property (nonatomic, strong, readonly) NSString *artistName;
+@property (nonatomic, strong, readonly) NSDate *releaseDate;
 
 //Path to the full fat image, may or may not exist
 
-@property (nonatomic, strong) NSURL *imageURL;
-@property (nonatomic, strong) NSURL *tbnImageURL;
-@property (nonatomic, strong) NSURL *previewURL;
-@property (nonatomic, strong) NSURL *viewURL;
+@property (nonatomic, strong, readonly) NSURL *imageURL;
+@property (nonatomic, strong, readonly) NSURL *thumnailImageURL;
+@property (nonatomic, strong, readonly) NSURL *previewURL;
+@property (nonatomic, strong, readonly) NSURL *viewURL;
 
 //Collection name: usually the album name (music)
 
-@property (nonatomic, strong) NSString *collectionName;
-@property (nonatomic, strong) NSString *genreName;
+@property (nonatomic, strong, readonly) NSString *collectionName;
+@property (nonatomic, strong, readonly) NSString *genreName;
 
-@property (nonatomic, strong) NSString *objectType;
+@property (nonatomic, strong, readonly) NSString *objectType;
 
-@property (nonatomic, strong) NSString *itemDescription;
+@property (nonatomic, strong, readonly) NSString *itemDescription;
 
-@property (nonatomic, assign) NSTimeInterval duration;
+@property (nonatomic, strong, readonly) NSNumber *duration;
 
 @end
