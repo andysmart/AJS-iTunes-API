@@ -25,25 +25,21 @@ Usage
 
 AJSITunesAPI is now fully block based, and much simpler as a result. Use one of the two convenience methods on `AJSITunesClient`, and receive an `NSArray` of `AJSITunesResult` objects.
 
-	```objective-c
-    AJSITunesClient *client = [AJSITunesClient sharedClient];
-    [client searchMedia:@"batman" completion:^(NSArray *results, NSError *error) {
-    		NSLog(@"Finished with results: %@", results);
-    }];
-    ```
+```objective-c
+AJSITunesClient *client = [AJSITunesClient sharedClient];
+[client searchMedia:@"batman" completion:^(NSArray *results, NSError *error) {
+	NSLog(@"Finished with results: %@", results);
+}];
+```
 
 Or, if you need a bit more control:
 
-	```objective-c
-	AJSITunesClient *client = [AJSITunesClient sharedClient];
-	[client searchMediaWithType:AJSITunesMediaTypeMovie
-	  keywords:@"batman"
-	   country:@"US"
-		 limit:10
-	completion:(NSArray *results, NSError *error) {
-		NSLog(@"Finished with results: %@", results);
-	}];
-	```
+```objective-c
+AJSITunesClient *client = [AJSITunesClient sharedClient];
+[client searchMediaWithType:AJSITunesMediaTypeMovie keywords:@"batman" country:@"US" limit:10 completion:(NSArray *results, NSError *error) {
+	NSLog(@"Finished with results: %@", results);
+}];
+```
 
 License
 ============
