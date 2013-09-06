@@ -1,44 +1,35 @@
-# taken from http://blog.illuminex.com/2009/10/better-sample-gitignore-file-for-xcode.html
-
-# Mac OS X Finder and whatnot
+# OS X files that should never be committed
 .DS_Store
+*.swp
+profile
+tmp
 
+# Xcode temporary files
+*~.nib
 
-# Sparkle distribution Private Key (Don't check me in!)
-dsa_priv.pem
+# Xcode build files
+DerivedData
+build
 
+# Xcode header maps
+*.hmap
 
-# XCode (and ancestors) per-user config (very noisy, and not relevant)
-*.mode1
-*.mode1v3
-*.mode2v3
-*.perspective
-*.perspectivev3
+# Xcode private settings (window sizes, bookmarks, breakpoints, custom executables, smart groups)
 *.pbxuser
-
-# Xcode 4 http://stackoverflow.com/questions/49478/git-ignore-file-for-xcode-projects
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
 xcuserdata
 
+# Xcode depricated classes
+*.moved-aside
 
-# Generated files
-VersionX-revision.h
+# AppCode
+.idea
 
-
-# build products
-build/
-*.[oa]
-
-# Other source repository archive directories (protects when importing)
-.hg
-.svn
-CVS
-
-
-# automatic backup files
-*~.nib
-*.swp
-*~
-*(Autosaved).rtfd/
-Backup[ ]of[ ]*.pages/
-Backup[ ]of[ ]*.key/
-Backup[ ]of[ ]*.numbers/
+# CocoaPods
+Pods
