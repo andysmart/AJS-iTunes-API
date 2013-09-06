@@ -18,20 +18,23 @@ Results are parsed to Cocoa objects, with properties for most of the returned da
 Installation
 ============
 
-Installation is super easy, using Cocoapods. Just add the `pod 'AJSITunesAPI', :git => 'https://github.com/andysmart/AJS-iTunes-API' to your `Podfile` and run 'pod install'.
+Installation is super easy, using Cocoapods. Just add the `pod 'AJSITunesAPI', :git => 'https://github.com/andysmart/AJS-iTunes-API'` to your `Podfile` and run `pod install`.
 
 Usage
 =====
 
 AJSITunesAPI is now fully block based, and much simpler as a result. Use one of the two convenience methods on `AJSITunesClient`, and receive an `NSArray` of `AJSITunesResult` objects.
 
+	```objective-c
     AJSITunesClient *client = [AJSITunesClient sharedClient];
     [client searchMedia:@"batman" completion:^(NSArray *results, NSError *error) {
     		NSLog(@"Finished with results: %@", results);
     }];
+    ```
 
 Or, if you need a bit more control:
 
+	```objective-c
 	AJSITunesClient *client = [AJSITunesClient sharedClient];
 	[client searchMediaWithType:AJSITunesMediaTypeMovie
 	  keywords:@"batman"
@@ -40,6 +43,7 @@ Or, if you need a bit more control:
 	completion:(NSArray *results, NSError *error) {
 		NSLog(@"Finished with results: %@", results);
 	}];
+	```
 
 License
 ============
