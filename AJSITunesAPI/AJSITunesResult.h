@@ -50,8 +50,6 @@ extern NSString *const AJSITunesMediaTypeSoftware;
 @property (nonatomic, strong, readonly) NSString *collectionName;
 @property (nonatomic, strong, readonly) NSString *genreName;
 
-@property (nonatomic, strong, readonly) NSString *objectType;
-
 @property (nonatomic, strong, readonly) NSString *itemDescription;
 
 @property (nonatomic, strong, readonly) NSNumber *duration;
