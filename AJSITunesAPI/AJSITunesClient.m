@@ -30,7 +30,7 @@
 
 - (id) searchMedia:(NSString *)keywords completion:(AJSITunesCompletionBlock)completion
 {
-    [self searchMediaWithType:AJSITunesMediaTypeAll keywords:keywords country:@"US" limit:50 completion:completion];
+    return [self searchMediaWithType:AJSITunesMediaTypeAll keywords:keywords country:@"US" limit:50 completion:completion];
 }
 
 - (id) searchMediaWithType:(NSString *)type
@@ -53,27 +53,27 @@
     
     [params setObject:@(limit) forKey:@"limit"];
     
-    [self GET:@"search" parameters:params success:^(NSHTTPURLResponse *response, id responseObject) {
+    return [self GET:@"search" parameters:params success:^(NSHTTPURLResponse *response, id responseObject) {
         
-        NSArray *results = responseObject[@"results"];
-        NSMutableArray *objects = [NSMutableArray arrayWithCapacity:[results count]];
+            NSArray *results = responseObject[@"results"];
+            NSMutableArray *objects = [NSMutableArray arrayWithCapacity:[results count]];
         
-        for (NSDictionary *hash in results) {
-            NSError *error = nil;
-            AJSITunesResult *object = [MTLJSONAdapter modelOfClass:[AJSITunesResult class] fromJSONDictionary:hash error:&error];
+            for (NSDictionary *hash in results) {
+                NSError *error = nil;
+                AJSITunesResult *object = [MTLJSONAdapter modelOfClass:[AJSITunesResult class] fromJSONDictionary:hash error:&error];
             
-            if (object && !error) {
-                [objects addObject:object];
-            } else {
-                NSLog(@"Error processing object with hash: %@", hash);
+                if (object && !error) {
+                    [objects addObject:object];
+                } else {
+                    NSLog(@"Error processing object with hash: %@", hash);
+                }
             }
-        }
         
-        if (completion) completion(objects, nil);
+            if (completion) completion(objects, nil);
         
-    } failure:^(NSError *error) {
-        if (completion) completion(nil, error);
-    }];
+        } failure:^(NSError *error) {
+            if (completion) completion(nil, error);
+        }];
 }
 
 @end

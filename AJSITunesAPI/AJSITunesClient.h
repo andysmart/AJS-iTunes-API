@@ -13,5 +13,12 @@ typedef void (^AJSITunesCompletionBlock)(NSArray *results, NSError *error);
 @interface AJSITunesClient : AFHTTPClient
 
 + (AJSITunesClient *)sharedClient;
+- (id) searchMedia:(NSString *)keywords completion:(AJSITunesCompletionBlock)completion;
+
+- (id) searchMediaWithType:(NSString *)type
+                  keywords:(NSString *)keywords
+                   country:(NSString *)countryCode
+                     limit:(NSUInteger)limit
+                completion:(AJSITunesCompletionBlock)completion;
 
 @end
