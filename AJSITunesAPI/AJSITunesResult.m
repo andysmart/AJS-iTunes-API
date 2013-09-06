@@ -9,6 +9,17 @@
 #import "AJSITunesResult.h"
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 
+NSString *const AJSITunesMediaTypeAll = @"all";
+NSString *const AJSITunesMediaTypeMusic = @"music";
+NSString *const AJSITunesMediaTypeMovie = @"movie";
+NSString *const AJSITunesMediaTypeMusicVideo = @"musicVideo";
+NSString *const AJSITunesMediaTypeTVShow = @"tvShow";
+NSString *const AJSITunesMediaTypeAudiobook = @"audiobook";
+NSString *const AJSITunesMediaTypeEBook = @"ebook";
+NSString *const AJSITunesMediaTypePodcast = @"podcast";
+NSString *const AJSITunesMediaTypeShortFilm = @"shortFilm";
+NSString *const AJSITunesMediaTypeSoftware = @"software";
+
 @interface AJSITunesResult()
 @property (nonatomic, strong) NSString *imageURLString;
 @end

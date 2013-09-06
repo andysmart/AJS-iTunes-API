@@ -8,16 +8,16 @@
 
 #import <Mantle/Mantle.h>
 
-static NSString *const AJSITunesMediaTypeAll = @"all";
-static NSString *const AJSITunesMediaTypeMusic = @"music";
-static NSString *const AJSITunesMediaTypeMovie = @"movie";
-static NSString *const AJSITunesMediaTypeMusicVideo = @"musicVideo";
-static NSString *const AJSITunesMediaTypeTVShow = @"tvShow";
-static NSString *const AJSITunesMediaTypeAudiobook = @"audiobook";
-static NSString *const AJSITunesMediaTypeEBook = @"ebook";
-static NSString *const AJSITunesMediaTypePodcast = @"podcast";
-static NSString *const AJSITunesMediaTypeShortFilm = @"shortFilm";
-static NSString *const AJSITunesMediaTypeSoftware = @"software";
+extern NSString *const AJSITunesMediaTypeAll;
+extern NSString *const AJSITunesMediaTypeMusic;
+extern NSString *const AJSITunesMediaTypeMovie;
+extern NSString *const AJSITunesMediaTypeMusicVideo;
+extern NSString *const AJSITunesMediaTypeTVShow;
+extern NSString *const AJSITunesMediaTypeAudiobook;
+extern NSString *const AJSITunesMediaTypeEBook;
+extern NSString *const AJSITunesMediaTypePodcast;
+extern NSString *const AJSITunesMediaTypeShortFilm;
+extern NSString *const AJSITunesMediaTypeSoftware;
 
 @interface AJSITunesResult : MTLModel <MTLJSONSerializing>
 
