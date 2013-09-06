@@ -12,10 +12,11 @@
 		A194BE3317DA202C00F19CEF /* AJSITunesAPI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = A194BE3217DA202C00F19CEF /* AJSITunesAPI.h */; };
 		A194BE3C17DA202C00F19CEF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A194BE3B17DA202C00F19CEF /* XCTest.framework */; };
 		A194BE3D17DA202C00F19CEF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A194BE2D17DA202C00F19CEF /* Foundation.framework */; };
-		A194BE3F17DA202C00F19CEF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A194BE3E17DA202C00F19CEF /* UIKit.framework */; };
 		A194BE4217DA202C00F19CEF /* libAJSITunesAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A194BE2A17DA202C00F19CEF /* libAJSITunesAPI.a */; };
 		A194BE4817DA202C00F19CEF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A194BE4617DA202C00F19CEF /* InfoPlist.strings */; };
 		A194BE4A17DA202C00F19CEF /* AJSITunesAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A194BE4917DA202C00F19CEF /* AJSITunesAPITests.m */; };
+		A194BE5517DA221500F19CEF /* AJSITunesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A194BE5417DA221500F19CEF /* AJSITunesClient.m */; };
+		A194BE6617DA262700F19CEF /* AJSITunesResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A194BE6517DA262700F19CEF /* AJSITunesResult.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,10 +50,13 @@
 		A194BE3217DA202C00F19CEF /* AJSITunesAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AJSITunesAPI.h; sourceTree = "<group>"; };
 		A194BE3A17DA202C00F19CEF /* AJSITunesAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AJSITunesAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A194BE3B17DA202C00F19CEF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		A194BE3E17DA202C00F19CEF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		A194BE4517DA202C00F19CEF /* AJSITunesAPITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AJSITunesAPITests-Info.plist"; sourceTree = "<group>"; };
 		A194BE4717DA202C00F19CEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A194BE4917DA202C00F19CEF /* AJSITunesAPITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AJSITunesAPITests.m; sourceTree = "<group>"; };
+		A194BE5317DA221500F19CEF /* AJSITunesClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSITunesClient.h; sourceTree = "<group>"; };
+		A194BE5417DA221500F19CEF /* AJSITunesClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSITunesClient.m; sourceTree = "<group>"; };
+		A194BE6417DA262700F19CEF /* AJSITunesResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJSITunesResult.h; sourceTree = "<group>"; };
+		A194BE6517DA262700F19CEF /* AJSITunesResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJSITunesResult.m; sourceTree = "<group>"; };
 		F396560AD1834C89A992D171 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -71,7 +75,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A194BE3C17DA202C00F19CEF /* XCTest.framework in Frameworks */,
-				A194BE3F17DA202C00F19CEF /* UIKit.framework in Frameworks */,
 				A194BE3D17DA202C00F19CEF /* Foundation.framework in Frameworks */,
 				A194BE4217DA202C00F19CEF /* libAJSITunesAPI.a in Frameworks */,
 			);
@@ -105,7 +108,6 @@
 			children = (
 				A194BE2D17DA202C00F19CEF /* Foundation.framework */,
 				A194BE3B17DA202C00F19CEF /* XCTest.framework */,
-				A194BE3E17DA202C00F19CEF /* UIKit.framework */,
 				F396560AD1834C89A992D171 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -116,6 +118,10 @@
 			children = (
 				A194BE3217DA202C00F19CEF /* AJSITunesAPI.h */,
 				A194BE3017DA202C00F19CEF /* Supporting Files */,
+				A194BE5317DA221500F19CEF /* AJSITunesClient.h */,
+				A194BE5417DA221500F19CEF /* AJSITunesClient.m */,
+				A194BE6417DA262700F19CEF /* AJSITunesResult.h */,
+				A194BE6517DA262700F19CEF /* AJSITunesResult.m */,
 			);
 			name = Classes;
 			path = AJSITunesAPI;
@@ -264,6 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A194BE5517DA221500F19CEF /* AJSITunesClient.m in Sources */,
+				A194BE6617DA262700F19CEF /* AJSITunesResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
