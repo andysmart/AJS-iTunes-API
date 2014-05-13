@@ -39,6 +39,17 @@
                      limit:(NSUInteger)limit
                 completion:(AJSITunesCompletionBlock)completion
 {
+    return [self searchMediaWithType:type entityType:nil attribute:nil keywords:keywords country:countryCode limit:limit completion:completion];
+}
+
+- (id) searchMediaWithType:(NSString *)type
+                entityType:(NSString *)entityType
+                 attribute:(NSString *)attribute
+                  keywords:(NSString *)keywords
+                   country:(NSString *)countryCode
+                     limit:(NSUInteger)limit
+                completion:(AJSITunesCompletionBlock)completion
+{
     if (!type) {
         type = AJSITunesMediaTypeAll;
     }
@@ -49,6 +60,12 @@
     
     if (countryCode) {
         [params setObject:countryCode forKey:@"country"];
+    }
+    if (entityType) {
+        [params setObject:entityType forKey:@"entity"];
+    }
+    if (attribute) {
+        [params setObject:attribute forKey:@"attribute"];
     }
     
     [params setObject:@(limit) forKey:@"limit"];

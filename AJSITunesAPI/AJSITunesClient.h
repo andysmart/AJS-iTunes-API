@@ -21,4 +21,12 @@ typedef void (^AJSITunesCompletionBlock)(NSArray *results, NSError *error);
                      limit:(NSUInteger)limit
                 completion:(AJSITunesCompletionBlock)completion;
 
+- (id) searchMediaWithType:(NSString *)type
+                entityType:(NSString *)entityType
+                 attribute:(NSString *)attribute
+                  keywords:(NSString *)keywords
+                   country:(NSString *)countryCode
+                     limit:(NSUInteger)limit
+                completion:(AJSITunesCompletionBlock)completion;
+
 @end
