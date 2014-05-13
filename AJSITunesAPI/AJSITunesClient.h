@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Rocket Town Ltd. All rights reserved.
 //
 
-#import "AFHTTPClient.h"
+#import "AFHTTPSessionManager.h"
 
 typedef void (^AJSITunesCompletionBlock)(NSArray *results, NSError *error);
 
-@interface AJSITunesClient : AFHTTPClient
+@interface AJSITunesClient : AFHTTPSessionManager
 
 + (AJSITunesClient *)sharedClient;
 - (id) searchMedia:(NSString *)keywords completion:(AJSITunesCompletionBlock)completion;

@@ -20,7 +20,7 @@
     dispatch_once(&onceToken, ^{
         NSURL *url = [NSURL URLWithString:BASE_URL];
         _sharedClient = [[self alloc] initWithBaseURL:url];
-        _sharedClient.responseSerializer = [AFJSONSerializer serializer];
+        _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
     });
     
     return _sharedClient;
@@ -53,7 +53,7 @@
     
     [params setObject:@(limit) forKey:@"limit"];
     
-    return [self GET:@"search" parameters:params success:^(NSHTTPURLResponse *response, id responseObject) {
+    return [self GET:@"search" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
             NSArray *results = responseObject[@"results"];
             NSMutableArray *objects = [NSMutableArray arrayWithCapacity:[results count]];
@@ -71,7 +71,7 @@
         
             if (completion) completion(objects, nil);
         
-        } failure:^(NSError *error) {
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
             if (completion) completion(nil, error);
         }];
 }
