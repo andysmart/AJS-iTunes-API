@@ -20,7 +20,7 @@
     dispatch_once(&onceToken, ^{
         NSURL *url = [NSURL URLWithString:BASE_URL];
         _sharedClient = [[self alloc] initWithBaseURL:url];
-        _sharedClient.responseSerializer = [AFJSONSerializer serializer];
+        _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
     });
     
     return _sharedClient;
@@ -39,6 +39,17 @@
                      limit:(NSUInteger)limit
                 completion:(AJSITunesCompletionBlock)completion
 {
+    return [self searchMediaWithType:type entityType:nil attribute:nil keywords:keywords country:countryCode limit:limit completion:completion];
+}
+
+- (id) searchMediaWithType:(NSString *)type
+                entityType:(NSString *)entityType
+                 attribute:(NSString *)attribute
+                  keywords:(NSString *)keywords
+                   country:(NSString *)countryCode
+                     limit:(NSUInteger)limit
+                completion:(AJSITunesCompletionBlock)completion
+{
     if (!type) {
         type = AJSITunesMediaTypeAll;
     }
@@ -50,10 +61,16 @@
     if (countryCode) {
         [params setObject:countryCode forKey:@"country"];
     }
+    if (entityType) {
+        [params setObject:entityType forKey:@"entity"];
+    }
+    if (attribute) {
+        [params setObject:attribute forKey:@"attribute"];
+    }
     
     [params setObject:@(limit) forKey:@"limit"];
     
-    return [self GET:@"search" parameters:params success:^(NSHTTPURLResponse *response, id responseObject) {
+    return [self GET:@"search" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
             NSArray *results = responseObject[@"results"];
             NSMutableArray *objects = [NSMutableArray arrayWithCapacity:[results count]];
@@ -71,7 +88,7 @@
         
             if (completion) completion(objects, nil);
         
-        } failure:^(NSError *error) {
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
             if (completion) completion(nil, error);
         }];
 }

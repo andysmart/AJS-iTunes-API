@@ -20,6 +20,55 @@ NSString *const AJSITunesMediaTypePodcast = @"podcast";
 NSString *const AJSITunesMediaTypeShortFilm = @"shortFilm";
 NSString *const AJSITunesMediaTypeSoftware = @"software";
 
+NSString *const AJSITunesEntityTypeAlbum = @"album";
+NSString *const AJSITunesEntityTypeAllArtist = @"allArtist";
+NSString *const AJSITunesEntityTypeAllTrack = @"allTrack";
+NSString *const AJSITunesEntityTypeAudiobook = @"audiobook";
+NSString *const AJSITunesEntityTypeAudiobookAuthor = @"audiobookAuthor";
+NSString *const AJSITunesEntityTypeEbook = @"ebook";
+NSString *const AJSITunesEntityTypeIPadSoftware = @"iPadSoftware";
+NSString *const AJSITunesEntityTypeMacSoftware = @"software";
+NSString *const AJSITunesEntityTypeMix = @"mix";
+NSString *const AJSITunesEntityTypeMovie = @"movie";
+NSString *const AJSITunesEntityTypeMovieArtist = @"movieArtist";
+NSString *const AJSITunesEntityTypeMusicTrack = @"musicTrack";
+NSString *const AJSITunesEntityTypeMusicVideo = @"musicVideo";
+NSString *const AJSITunesEntityTypePodcast = @"podcast";
+NSString *const AJSITunesEntityTypePodcastAuthor = @"podcastAutor";
+NSString *const AJSITunesEntityTypeShortFilm = @"shortFilm";
+NSString *const AJSITunesEntityTypeShortFilmArtist = @"shortFilmArtist";
+NSString *const AJSITunesEntityTypeSoftware = @"software";
+NSString *const AJSITunesEntityTypeSong = @"song";
+NSString *const AJSITunesEntityTypeTvEpisode = @"tvEpisode";
+NSString *const AJSITunesEntityTypeTvSeason = @"tvSeason";
+
+NSString *const AJSITunesAttributeAlbumTerm = @"albumTerm";
+NSString *const AJSITunesAttributeAllArtistTerm = @"allArtistTerm";
+NSString *const AJSITunesAttributeAllTrackTerm = @"allTrackTerm";
+NSString *const AJSITunesAttributeArtistTerm = @"artistTerm";
+NSString *const AJSITunesAttributeAuthorTerm = @"authorTerm";
+NSString *const AJSITunesAttributeComposerTerm = @"composerTerm";
+NSString *const AJSITunesAttributeDescriptionTerm = @"descriptionTerm";
+NSString *const AJSITunesAttributeDirectorTerm = @"directorTerm";
+NSString *const AJSITunesAttributeFeatureFilmTerm = @"featureFilmTerm";
+NSString *const AJSITunesAttributeGenreIndex = @"genreIndex";
+NSString *const AJSITunesAttributeKeywordsTerm = @"keywordsTerm";
+NSString *const AJSITunesAttributeLanguageTerm = @"languageTerm";
+NSString *const AJSITunesAttributeMixTerm = @"mixTerm";
+NSString *const AJSITunesAttributeMovieArtistTerm = @"movieArtistTerm";
+NSString *const AJSITunesAttributeMovieTerm = @"movieTerm";
+NSString *const AJSITunesAttributeProducerTerm = @"producerTerm";
+NSString *const AJSITunesAttributeRatingIndex = @"ratingIndex";
+NSString *const AJSITunesAttributeRatingTerm = @"ratingTerm";
+NSString *const AJSITunesAttributeReleaseYearTerm = @"releaseYearTerm";
+NSString *const AJSITunesAttributeShortFilmTerm = @"shortFilmTerm";
+NSString *const AJSITunesAttributeShowTerm = @"showTerm";
+NSString *const AJSITunesAttributeSoftwareDeveloper = @"softwareDeveloper";
+NSString *const AJSITunesAttributeSongTerm = @"songTerm";
+NSString *const AJSITunesAttributeTitleTerm = @"titleTerm";
+NSString *const AJSITunesAttributeTvEpisodeTerm = @"tvEpisodeTerm";
+NSString *const AJSITunesAttributeTvSeasonTerm = @"tvSeasonTerm";
+
 @interface AJSITunesResult()
 @property (nonatomic, strong) NSString *imageURLString;
 @end
@@ -63,7 +112,8 @@ NSString *const AJSITunesMediaTypeSoftware = @"software";
               @"viewURL" : @"trackViewUrl",
               @"duration" : @"trackTimeMillis",
               @"releaseDate" : @"releaseDate",
-              @"imageURLString" : @"artworkUrl100" };
+              @"imageURLString" : @"artworkUrl100",
+              @"smallImageURLString" : @"artworkUrl60"};
 }
 
 
