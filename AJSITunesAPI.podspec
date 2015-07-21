@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'AJSITunesAPI', 'AJSITunesAPI/**/*.{h,m}'
   s.requires_arc = true
   
-  s.dependency 'AFNetworking', '~> 2.0.0-RC2'
+  s.dependency 'AFNetworking', '~> 2.0'
   s.dependency 'Mantle', '~> 1.2'
   s.dependency 'ISO8601DateFormatter', '~> 0.6'
 end
