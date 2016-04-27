@@ -103,4 +103,6 @@ extern NSString *const AJSITunesAttributeTvSeasonTerm;
 
 @property (nonatomic, strong, readonly) NSNumber *duration;
 
+@property (nonatomic) BOOL isStreamable;
+
 @end
