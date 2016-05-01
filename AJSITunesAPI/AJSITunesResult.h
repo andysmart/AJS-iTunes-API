@@ -92,7 +92,7 @@ extern NSString *const AJSITunesAttributeTvSeasonTerm;
 @property (nonatomic, strong, readonly) NSURL *imageURL;
 @property (nonatomic, strong, readonly) NSURL *thumnailImageURL;
 @property (nonatomic, strong, readonly) NSURL *previewURL;
-@property (nonatomic, strong, readonly) NSURL *viewURL;
+@property (nonatomic, strong, readonly) NSString *viewURL;
 
 //Collection name: usually the album name (music)
 
@@ -102,5 +102,7 @@ extern NSString *const AJSITunesAttributeTvSeasonTerm;
 @property (nonatomic, strong, readonly) NSString *itemDescription;
 
 @property (nonatomic, strong, readonly) NSNumber *duration;
+
+@property (nonatomic) BOOL isStreamable;
 
 @end
